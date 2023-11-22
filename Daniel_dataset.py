@@ -196,3 +196,5 @@ def generate_bushfire_data(size):
 
 # Example usage
 bushfire_data = generate_bushfire_data(100000)
+
+#commit chnages
