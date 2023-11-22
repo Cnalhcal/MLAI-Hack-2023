@@ -1,8 +1,10 @@
 import numpy as np
 import torch
 from torch.utils.data import Dataset
+import math
 
 def generate_features():
+    # Parameters identified by McArthur 65,67
     features = {
         'fuel_age': np.random.uniform(0, 30),
         'wind_speed': np.random.normal(50, 25),
@@ -45,3 +47,23 @@ def generate_bushfire_data(size):
 
 # Example usage
 bushfire_data = generate_bushfire_data(100000)
+
+
+#mathematical implementations of params
+
+# Mk3 Model (Noble 1980)
+# Fire Danger Index
+''' 
+C - DegCure 
+T - AirTemp
+H - RelHumid 
+V - AvgWind 
+'''
+def FDI (degCure, AirTemp, RelHumid,AvgWind):
+    #INSERT INPUT VALIDATION HERE 
+    return 2.0 * math.e ** (-23.6 + 5.01*math.log(degCure)+0.0281*AirTemp-0.226*math.sqrt(RelHumid)+0.633*sqrt(AvgWind))
+
+#Rate of Fire Spread (kmh^-1)
+def RoFS(FDI):
+    return 0.13 * FDI
+
