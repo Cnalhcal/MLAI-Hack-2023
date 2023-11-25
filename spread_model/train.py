@@ -3,6 +3,7 @@ from torch.utils.data import DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
 
+from model import BushfireModel
 from dataset.yellow_phase.input_tensor import fire_spread_data
 
 # Splitting the dataset
