@@ -2,11 +2,11 @@ import pandas as pd
 from scipy.stats import qmc
 from spread_function import calculate_fire_spread_rate()
 
-# YELLOW PHASE:
-# Define the bounds for each parameter in the yellow phase
-bounds_yellow_phase = np.array([[11.5, 34.1],  # Wind speed
+# GREEN PHASE:
+# Define the bounds for each parameter in the green phase
+bounds_green_phase = np.array([[11.5, 34.1],  # Wind speed
                    [0, 6],        # Fuel load
-                   [35, 65],      # Moisture content
+                   [0, 35],      # Moisture content
                    [0, 30]])      # Slope angle
 
 # Using Latin Hypercube Sampling (LHS) for a more structured approach
