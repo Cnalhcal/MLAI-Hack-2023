@@ -12,7 +12,7 @@ bounds_green_phase = np.array([[11.5, 34.1],  # Wind speed
 # Using Latin Hypercube Sampling (LHS) for a more structured approach
 sampler = qmc.LatinHypercube(d=4)
 sample = sampler.random(n=1000)
-sample = qmc.scale(sample, bounds_yellow_phase[:, 0], bounds_yellow_phase[:, 1])
+sample = qmc.scale(sample, bounds_green_phase[:, 0], bounds_green_phase[:, 1])
 
 # Extracting the samples for each parameter
 wind_speed_samples = sample[:, 0]
