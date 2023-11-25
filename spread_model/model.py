@@ -1,9 +1,6 @@
-import numpy as np
 import torch
-from torch.utils.data import Dataset
 from typing import List 
 import torch.nn as nn
-import torch.optim as optim
 
 class BushfireModel(nn.Module): 
     def __init__(self, n: int, hidden_layers: List[int]): 
