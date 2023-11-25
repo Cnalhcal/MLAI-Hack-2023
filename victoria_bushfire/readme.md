@@ -15,12 +15,12 @@ The function accepts the following parameters:
 
 The function uses several constants in its calculations:
 
-- **a (1.674)**: A constant used for converting wind speed at 10m to wind speed at 1.5m height.
-- **b (0.1798)**: Another constant used for the wind speed conversion.
-- **c (0.22)**: A scaling factor for the fuel load in the rate of spread calculation.
-- **d (0.158)**: A constant that modulates the influence of wind speed at 1.5m on the rate of spread.
-- **e (-0.227)**: A constant that modulates the influence of moisture content on the rate of spread.
-- **f (0.0662)**: A constant that modulates the influence of ground slope on the rate of spread.
+- `a (1.674)`: A constant used for converting wind speed at 10m to wind speed at 1.5m height.
+- `b (0.1798)`: Another constant used for the wind speed conversion.
+- `c (0.22)`: A scaling factor for the fuel load in the rate of spread calculation.
+- `d (0.158)`: A constant that modulates the influence of wind speed at 1.5m on the rate of spread.
+- `e (-0.227)`: A constant that modulates the influence of moisture content on the rate of spread.
+- `f (0.0662)`: A constant that modulates the influence of ground slope on the rate of spread.
 
 ## Function Mechanics
 
