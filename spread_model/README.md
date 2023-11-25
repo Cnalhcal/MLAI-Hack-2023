@@ -1,6 +1,6 @@
 # Forest Fire Spread Rate Model
 
-<img src="https://github.com/Cnalhcal/MLAI-Hack-2023/assets/100665526/acd7ef48-64ba-4131-b315-44e40574377d" width="412", height="412">
+<img src="https://github.com/Cnalhcal/MLAI-Hack-2023/assets/100665526/acd7ef48-64ba-4131-b315-44e40574377d.png" width="412", height="412">
 
 A eucalyptus forest with a fire spreading, complemented by symbolic representations like a wind gauge, a moisture meter, and a protractor, symbolizing wind speed, moisture content, and slope angle. 
 
