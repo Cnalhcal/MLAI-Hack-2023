@@ -1,6 +1,6 @@
 import pandas as pd
 from scipy.stats import qmc
-from spread_model.dataset.calculate_fire_spread_rate()
+from spread_function import calculate_fire_spread_rate()
 
 # YELLOW PHASE:
 # Define the bounds for each parameter in the yellow phase
