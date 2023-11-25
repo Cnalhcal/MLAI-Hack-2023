@@ -55,7 +55,14 @@ def predict(model, input_features):
         predictions = model(input_features)
     return predictions
 
-# Example usage with one sample from the validation set
+# Example usage with a batch of samples from the validation set
 features, labels = next(iter(val_loader))
-prediction = predict(model, features)
-print(f'Predicted: {prediction}, Actual: {labels}')
+predictions = predict(model, features)
+
+# Assuming predictions and labels are tensors, we convert them to a Python list for easy viewing
+predicted_list = predictions.tolist()
+actual_list = labels.tolist()
+
+# Print each predicted and actual value side by side
+for predicted, actual in zip(predicted_list, actual_list):
+    print(f'Predicted: {predicted}, Actual: {actual}')
