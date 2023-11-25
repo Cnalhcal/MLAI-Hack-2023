@@ -1,5 +1,5 @@
-numpy
-torch
-math
-scipy
-pandas
+Numpy
+Torch
+Torchinfo 
+Scipy
+Pandas
