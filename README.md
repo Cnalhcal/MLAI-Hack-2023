@@ -4,6 +4,8 @@
 
 ### Overview
 Australia's landscapes have always been prone to devastating bushfires, with recent years witnessing some of the most catastrophic events in history. Our project, the Bushfire Prediction Model, aims to make a significant impact in this challenging context. Developed for a hackathon, this model leverages the power of deep learning to predict the spread of bushfires, providing crucial information that can be used for effective fire management and emergency response planning.
+
+Click this image to check out our video walkthrough of the project
 [![Link to the video explanation of the project](https://img.youtube.com/vi/fPk_l4gE4S0/0.jpg)](https://www.youtube.com/watch?v=fPk_l4gE4S0)
 
 
