@@ -91,3 +91,28 @@ In addition to generating the dataset, this script includes functionality to con
 - Instantiate the `FireSpreadDataset` class with the `data_lhs` DataFrame.
 - Access individual samples using indexing, which returns both features and target for each sample.
 
+# Bushfire Model
+
+### Overview
+The `BushfireModel` class is a PyTorch neural network model designed to predict the spread rate of bushfires based on input features. The model is a fully connected feedforward neural network with customizable hidden layers.
+
+### Features
+- **Customizable Architecture**: The number of hidden layers and the number of neurons in each layer can be specified when creating an instance of the model.
+- **Activation Function**: Uses the ReLU activation function for non-linear transformations between layers, except for the output layer, which is linear.
+- **Flexible Input**: Designed to work with any number of input features.
+
+### Requirements
+- Python 3.x
+- PyTorch
+
+### Usage
+To use the `BushfireModel`, first initialize it with the desired architecture:
+
+```python
+import torch
+from bushfire_model import BushfireModel
+
+# Example: Create a model with 4 input features and two hidden layers with 500 and 100 neurons respectively
+model = BushfireModel(n=4, hidden_layers=[500, 100])
+
+
