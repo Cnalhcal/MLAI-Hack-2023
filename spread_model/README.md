@@ -45,6 +45,12 @@ This function is useful for forest fire management and prediction purposes. By i
 ### Sampling Method:
 - The script uses Latin Hypercube Sampling (LHS) from the SciPy library. LHS is an efficient statistical method for generating a distributed sample of parameter values from a multidimensional distribution. This ensures a more uniform and representative sample across the parameter space.
 
+### Parameters:
+- **Wind Speed:** Ranging from 11.5 to 34.1 km/hr.
+- **Fuel Load:** Ranging from 0 to 6 tonnes/hectare.
+- **Moisture Content:** Ranging from 35% to 65%.
+- **Slope Angle:** Ranging from 0 to 30 degrees.
+
 ### Data Generation:
 - The script generates 1000 samples for each parameter within their defined bounds.
 - It calculates the spread rate of forest fires for each set of parameters using a predefined function `calculate_fire_spread_rate`.
