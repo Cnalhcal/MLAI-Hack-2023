@@ -17,6 +17,21 @@ Recognizing the limitations in available real-world data on bushfires, we took t
 ### Technical Implementation
 The heart of our project is the BushFireModel [(A demonstration notebook is available on Colab)](https://colab.research.google.com/drive/1ZrslTfcZE-qQW-1vlBR6kUyr5ATm4EUA?usp=sharing), a neural network built using PyTorch. It's structured to process key environmental factors – such as wind speed, moisture content, fuel load, and slope angle – to predict the rate at which bushfires spread. We trained our model using a custom dataset, employing techniques like Latin Hypercube Sampling for data generation and advanced neural network architectures for modeling.
 
+=================================================================
+Layer (type:depth-idx)                   Param #
+=================================================================
+BushfireModel                            --
+├─ModuleList: 1-1                        --
+│    └─Linear: 2-1                       1,000
+│    └─Linear: 2-2                       20,100
+│    └─Linear: 2-3                       101
+=================================================================
+Total params: 21,201
+Trainable params: 21,201
+Non-trainable params: 0
+=================================================================
+
+
 ### User Interface and Visualization
 While our project currently does not feature a front-end interface, the potential for integration into user-friendly applications is immense. The model's predictions could be visualized on interactive maps, providing intuitive, real-time insights into bushfire behavior. This aspect opens up avenues for future development and collaboration.
 
