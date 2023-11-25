@@ -41,10 +41,21 @@ def train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_
         print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss:.4f}')
 
 # Initialize the model
-model = BushfireModel(n=4, hidden_layers=[500,100])
+model = BushfireModel(n=4, hidden_layers=[200,100])
 loss_criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.0001)
+optimizer = optim.Adam(model.parameters(), lr=0.00001)
 
 # Train the model
-num_epochs = 10
+num_epochs = 50
 train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_epochs)
+
+def predict(model, input_features):
+    model.eval()  # Set the model to evaluation mode
+    with torch.no_grad():
+        predictions = model(input_features)
+    return predictions
+
+# Example usage with one sample from the validation set
+features, labels = next(iter(val_loader))
+prediction = predict(model, features)
+print(f'Predicted: {prediction}, Actual: {labels}')
