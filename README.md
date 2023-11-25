@@ -84,9 +84,11 @@ This function is useful for forest fire management and prediction purposes. By i
 ### Parameters:
 - **Wind Speed:** Ranging from 11.5 to 34.1 km/hr.
 - **Fuel Load:** Ranging from 0 to 6 tonnes/hectare.
-- **Moisture Content:** Ranging from 35% to 65%.
 - **Slope Angle:** Ranging from 0 to 30 degrees.
+- **Moisture Content:** Three seperate models were made to account for the three different generalized bands used by the CFA's Grassland Curing Guide.
 
+  <img src="readme_img/SeasonalProgressionofcuringinSEAUS.png">
+  
 ### Data Generation:
 - The script generates 1000 samples for each parameter within their defined bounds.
 - It calculates the spread rate of forest fires for each set of parameters using a predefined function `calculate_fire_spread_rate`.
