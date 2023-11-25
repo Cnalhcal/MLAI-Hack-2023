@@ -1,5 +1,10 @@
 # Forest Fire Spread Rate Calculation
 
+![Forest fires](https://github.com/Cnalhcal/MLAI-Hack-2023/assets/100665526/acd7ef48-64ba-4131-b315-44e40574377d)
+
+A eucalyptus forest with a fire spreading, complemented by symbolic representations like a wind gauge, a moisture meter, and a protractor, symbolizing wind speed, moisture content, and slope angle. 
+
+
 This Python function, `calculate_fire_spread_rate`, is designed to estimate the rate of spread of a forest fire under given environmental conditions. The function takes into account several key factors that influence fire behavior in forested areas.
 
 ## Parameters
