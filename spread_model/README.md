@@ -114,5 +114,41 @@ from bushfire_model import BushfireModel
 
 # Example: Create a model with 4 input features and two hidden layers with 500 and 100 neurons respectively
 model = BushfireModel(n=4, hidden_layers=[500, 100])
+```
 
+# Training the BushfireModel
 
+### Overview
+This guide outlines the process for training the `BushfireModel`, a neural network designed to predict the spread rate of bushfires. The model is trained using PyTorch, a popular deep learning library.
+
+### Requirements
+- Python 3.x
+- PyTorch
+- A dataset encapsulated in a PyTorch `Dataset` object, referred to as `fire_spread_data`.
+
+### Training Process
+The training process involves the following steps:
+
+1. **Splitting the Dataset**: The dataset is split into training and validation sets, with 80% of the data used for training and the remaining 20% for validation.
+
+2. **Creating DataLoaders**: PyTorch `DataLoader` objects are created for both the training and validation sets to enable batch processing and shuffling of the data.
+
+3. **Model Initialization**: The `BushfireModel` is initialized with a specified number of input features and hidden layers.
+
+4. **Defining Loss Function and Optimizer**: The Mean Squared Error (MSE) loss function and Adam optimizer are used.
+
+5. **Training Loop**: The model is trained over multiple epochs, where each epoch involves a pass over the entire training dataset and a subsequent evaluation on the validation dataset.
+
+### Code Snippet
+```python
+# Initialize the model
+model = BushfireModel(n=4, hidden_layers=[200,100])
+
+# Define the loss criterion and optimizer
+loss_criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.00001)
+
+# Train the model
+num_epochs = 50
+train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_epochs)
+```
