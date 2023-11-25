@@ -151,3 +151,25 @@ optimizer = optim.Adam(model.parameters(), lr=0.00001)
 num_epochs = 50
 train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_epochs)
 ```
+# Prediction Using the Trained BushfireModel
+
+## Overview
+This guide provides instructions on how to use the trained `BushfireModel` to make predictions. The `predict` function is designed to take a model and a set of input features and return the model's predictions.
+
+## Function Description
+
+### `predict` Function
+- **Purpose**: To make predictions using the trained `BushfireModel`.
+- **Parameters**:
+  - `model`: The trained PyTorch model.
+  - `input_features`: A tensor of input features on which predictions are to be made.
+- **Returns**: The predicted values as output by the model. We theh print them with the actual values and see how well model works.
+
+### Code Snippet
+```python
+def predict(model, input_features):
+    model.eval()  # Set the model to evaluation mode
+    with torch.no_grad():
+        predictions = model(input_features)
+    return predictions
+```
