@@ -95,7 +95,7 @@ This function is useful for forest fire management and prediction purposes. By i
   <img src="readme_img/SeasonalProgressionofcuringinSEAUS.png">
   
 ### Data Generation:
-- The script generates 1000 samples for each parameter within their defined bounds.
+- The script generates 40000 samples for each parameter within their defined bounds for each range above (only YELLOW PHASE in collab.
 - It calculates the spread rate of forest fires for each set of parameters using a predefined function `calculate_fire_spread_rate`.
 
 ### Output:
