@@ -3,6 +3,8 @@ from torch.utils.data import DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
 
+from dataset.yellow_phase.input_tensor import fire_spread_data
+
 # Splitting the dataset
 total_size = len(fire_spread_data)
 train_size = int(0.8 * total_size)  # 80% for training
