@@ -6,10 +6,10 @@ This Python function, `calculate_fire_spread_rate`, is designed to estimate the 
 
 The function accepts the following parameters:
 
-- **wind_speed_at_10m (float)**: The wind speed measured at a height of 10 meters, expressed in kilometers per hour (km/hr).
-- **moisture_content (float)**: The moisture content of the environment, given as a percentage. This should be in the range of 35% to 65%.
-- **slope_angle (float)**: The angle of the ground slope, expressed in degrees. This parameter accounts for the impact of terrain on fire spread.
-- **fuel_load (float, optional)**: The load of combustible material, specifically referring to materials with a diameter less than 6 mm, measured in tonnes per hectare. The default value is 2 tonnes/hectare, which is a typical value for forested areas.
+- `wind_speed_at_10m (float)`: The wind speed measured at a height of 10 meters, expressed in kilometers per hour (km/hr).
+- `moisture_content (float)`: The moisture content of the environment, given as a percentage. This should be in the range of 35% to 65%.
+- `slope_angle (float)`: The angle of the ground slope, expressed in degrees. This parameter accounts for the impact of terrain on fire spread.
+- `fuel_load (float, optional)`: The load of combustible material, specifically referring to materials with a diameter less than 6 mm, measured in tonnes per hectare. The default value is 2 tonnes/hectare, which is a typical value for forested areas.
 
 ## Constants
 
