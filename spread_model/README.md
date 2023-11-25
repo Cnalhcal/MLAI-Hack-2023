@@ -139,7 +139,6 @@ The training process involves the following steps:
 
 5. **Training Loop**: The model is trained over multiple epochs, where each epoch involves a pass over the entire training dataset and a subsequent evaluation on the validation dataset.
 
-### Code Snippet
 ```python
 # Initialize the model
 model = BushfireModel(n=4, hidden_layers=[200,100])
