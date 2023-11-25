@@ -1,6 +1,15 @@
+import sys
+import os
 import pandas as pd
+import numpy as np
 from scipy.stats import qmc
-from spread_function import calculate_fire_spread_rate()
+
+#Retrieve parent folder for the spread_function
+
+parent_dir = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(parent_dir)
+
+from spread_function import calculate_fire_spread_rate
 
 # GREEN PHASE:
 # Define the bounds for each parameter in the green phase

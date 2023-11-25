@@ -1,6 +1,11 @@
 import pandas as pd
+import numpy as np 
 from scipy.stats import qmc
-from spread_function import calculate_fire_spread_rate()
+from spread_function import calculate_fire_spread_rate
+import sys
+import os
+
+
 
 # ORANGE PHASE:
 # Define the bounds for each parameter in the orange phase
