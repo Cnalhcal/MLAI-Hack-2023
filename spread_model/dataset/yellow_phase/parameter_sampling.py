@@ -5,9 +5,9 @@ import numpy as np
 from scipy.stats import qmc
 
 #Retrieve parent folder for the spread_function
-parent_dir = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(parent_dir)
-
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
 from spread_function import calculate_fire_spread_rate
 
 

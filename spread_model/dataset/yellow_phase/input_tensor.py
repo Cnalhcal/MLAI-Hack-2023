@@ -1,7 +1,11 @@
 # Convert the DataFrame to a PyTorch tensor
-
 import torch
 from torch.utils.data import Dataset
+
+import sys
+import os
+current = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(current)
 from parameter_sampling import data_lhs
 
 class FireSpreadDataset(Dataset):
