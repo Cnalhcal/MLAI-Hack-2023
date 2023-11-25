@@ -1,6 +1,4 @@
-# Bushfire Prediction Model: Revolutionizing Fire Management in Australia
-
-<h1 style="text-align: centre">Forest Fire Spread Rate Model</h1>
+<h1 style="text-align: centre">Bushfire Prediction Model: Revolutionizing Fire Management in Australia</h1>
 
 <img src="https://github.com/Cnalhcal/MLAI-Hack-2023/assets/100665526/acd7ef48-64ba-4131-b315-44e40574377d.png" width="500px">
 
