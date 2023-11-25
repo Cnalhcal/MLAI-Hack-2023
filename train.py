@@ -1,31 +1,25 @@
-import numpy as np
 import torch
-from torch.utils.data import Dataset
-from typing import List 
+from torch.utils.data import DataLoader, random_split
 import torch.nn as nn
 import torch.optim as optim
 
-class BushfireModel(nn.Module): 
-    def __init__(self, n: int, hidden_layers: List[int]): 
-        super().__init__() #Inherit from the nn.module
-        self.n = n # n input features
-        self.hidden_layers = hidden_layers # hidden layers are the middle ones
+from model import BushfireModel
+from dataset.yellow_phase.input_tensor import fire_spread_data
 
-        self.layers = nn.ModuleList([
-            nn.Linear(in_dim, out_dim)
-            for in_dim, out_dim in zip([n, *hidden_layers], [*hidden_layers, 1])
-        ]) # Single output
+# Splitting the dataset
+total_size = len(fire_spread_data)
+train_size = int(0.8 * total_size)  # 80% for training
+val_size = total_size - train_size  # 20% for validation
+train_dataset, val_dataset = random_split(fire_spread_data, [train_size, val_size])
 
-    def forward(self, x: torch.tensor):
-        for i, layer in enumerate(self.layers):
-            x = layer(x)
-            if i != len(self.layers) - 1:    #We don't want to ReLU the last layer
-                x = nn.functional.relu(x)  
-        return x # Linear output for regression
+# Creating DataLoaders
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=64, shuffle=False)
 
-from torch.utils.data import DataLoader
-def train_model(model, train_loader, loss_criterion, optimizer, num_epochs):
+# Training function
+def train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_epochs):
     for epoch in range(num_epochs):
+        model.train()  # Training mode
         for i, (features, labels) in enumerate(train_loader):
             # Forward pass
             outputs = model(features)
@@ -36,10 +30,39 @@ def train_model(model, train_loader, loss_criterion, optimizer, num_epochs):
             loss.backward()
             optimizer.step()
 
-            if (i + 1) % 100 == 0:
-                print(f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{len(train_loader)}], Loss: {loss.item():.4f}')
-model = BushfireModel(n=11, hidden_layers=[1000,700])
+        model.eval()  # Validation mode
+        with torch.no_grad():
+            val_loss = 0
+            for features, labels in val_loader:
+                outputs = model(features)
+                val_loss += loss_criterion(outputs, labels.unsqueeze(1)).item()
+
+        val_loss /= len(val_loader)
+        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss:.4f}')
+
+# Initialize the model
+model = BushfireModel(n=4, hidden_layers=[200,100])
 loss_criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.1)
-train_loader = DataLoader(dataset, batch_size=512, shuffle=True)
-num_epochs = 8
+optimizer = optim.Adam(model.parameters(), lr=0.00001)
+
+# Train the model
+num_epochs = 50
+train_model(model, train_loader, val_loader, loss_criterion, optimizer, num_epochs)
+
+def predict(model, input_features):
+    model.eval()  # Set the model to evaluation mode
+    with torch.no_grad():
+        predictions = model(input_features)
+    return predictions
+
+# Example usage with a batch of samples from the validation set
+features, labels = next(iter(val_loader))
+predictions = predict(model, features)
+
+# Assuming predictions and labels are tensors, we convert them to a Python list for easy viewing
+predicted_list = predictions.tolist()
+actual_list = labels.tolist()
+
+# Print each predicted and actual value side by side
+for predicted, actual in zip(predicted_list, actual_list):
+    print(f'Predicted: {predicted}, Actual: {actual}')
